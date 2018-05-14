@@ -2,6 +2,8 @@ package br.com.designpatterns.strategy;
 
 import static org.junit.Assert.assertEquals;
 
+import br.com.designpatterns.Orcamento;
+import br.com.designpatterns.chainofresponsibility.Item;
 import java.math.BigDecimal;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +16,8 @@ public class CalculadorDeImpostosTest {
   @Before
   public void setUp() throws Exception {
     calculadorDeImpostos = new CalculadorDeImpostos();
-    orcamento = new Orcamento(BigDecimal.valueOf(800));
+    orcamento = new Orcamento();
+    orcamento.adicionar(new Item("Som", BigDecimal.valueOf(800)));
   }
 
   @Test
