@@ -1,4 +1,4 @@
-package br.com.designpatterns.strategy;
+package br.com.designpatterns.strategydecorator;
 
 import static org.junit.Assert.assertEquals;
 
@@ -41,6 +41,19 @@ public class CalculadorDeImpostosTest {
     final BigDecimal issDoOrcamento = calculadorDeImpostos.calcular(orcamento, iss);
 
     final BigDecimal valorImpostoEsperado = BigDecimal.valueOf(160.0);
+
+    assertEquals(valorImpostoEsperado, issDoOrcamento);
+  }
+
+  @Test
+  public void deveCalcularImpostoISS_E_ICMSDoValorDoOrcamento() throws Exception {
+    orcamento.adicionar(new Item("Som", BigDecimal.valueOf(800)));
+
+    final ICMS icms = new ICMS();
+    final ISS iss = new ISS(icms);
+    final BigDecimal issDoOrcamento = calculadorDeImpostos.calcular(orcamento, iss);
+
+    final BigDecimal valorImpostoEsperado = BigDecimal.valueOf(400.0);
 
     assertEquals(valorImpostoEsperado, issDoOrcamento);
   }

@@ -1,4 +1,4 @@
-package br.com.designpatterns.strategy;
+package br.com.designpatterns.strategydecorator;
 
 import br.com.designpatterns.Orcamento;
 import java.math.BigDecimal;
